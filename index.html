@@ -1,0 +1,167 @@
+<link rel="stylesheet" href="/Styles.css">
+<title>FNAF Test</title>
+<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    	div {
+            padding: 10px;
+            background-color: #f6f6f6;
+            overflow: hidden;
+        }
+    	input[type=text], textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=button]{ 
+            width: auto;
+            float: right;
+            cursor: pointer;
+            padding: 7px;
+        }
+    </style>
+</head>
+
+
+
+
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+    
+    <label for="fname"> Twisted Freddy Is Made Up:</label><br>  
+    <div>
+    <input type="text" id="Q1" placeholder=""/>
+    </div>
+
+    <h1> </h1>
+    
+    <label for="fname">Which Book Did Charolette Die In:</label><br>
+    <div>
+    <input type="text" id="Q2" placeholder=""/>
+    </div>
+
+   <h1> </h1>
+   
+   <label for="The Twisted Ones">The Twisted Ones</label><br>
+   <div>
+   <input type="text" id="Q3" placeholder=""/>
+   </div>
+
+   <h1> </h1>
+    
+    <label for="fname"> Who is Freddy's Dad:</label><br>
+    <div>
+    <input type="text" id="Q4" placeholder=""/>
+    </div>
+
+    <h1> </h1>
+
+    <label for="fname"> What is the Puppet on Funtime Freddy:</label><br>
+    <div>
+    <input type="text" id="Q5" placeholder=""/>    
+    </div>
+
+    <h1> </h1>
+    
+    <label for="fname"> There Is Plushes of Monty Gator :</label><br>
+    <div>
+    <input type="text" id="Q6" placeholder=""/>
+    </div>
+
+    <h1> </h1>
+
+    <label for="fname"> What Do You Call The Broken Version of Monty Gator:</label><br>
+    <div>
+    <input type="text" id="Q7" placeholder=""/>
+    </div>
+
+    <h1> </h1>
+    
+    <label for="fname"> How Many FNAF Games Have the movement feature:</label><br>
+    <div>
+    <input type="text" id="Q8" placeholder=""/>
+    </div>
+
+    <h1> </h1>
+
+    <label for="fname"> Is Foxy in FNAF SB:</label><br>
+    <div>
+    <input type="text" id="Q9" placeholder=""/>
+    </div>
+
+    <h1> </h1>
+
+    <label for="fname"> How Many Characters Are in FNAF 2:</label><br>
+    <div>
+    <input type="text" id="Q10" placeholder=""/>
+    </div>
+    
+    <h1> </h1>
+    
+    <label for="fname"> BONUS 
+                        How Many Characters Are in the 1st to 4th Game?:</label><br>
+    <div>
+    <input type="text" id="Q11" placeholder=""/>
+    </div>
+
+    <h1> </h1>
+
+      <div>
+            <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
+        </div>
+
+<script>
+    let saveFile = () => {
+    	
+        // Get the data from each element on the form.
+    	const Q1 = document.getElementById('Q1');
+        const Q2 = document.getElementById('Q2');
+        const Q3 = document.getElementById('Q3');
+        const Q4 = document.getElementById('Q4');
+        const Q5 = document.getElementById('Q5');
+        const Q6 = document.getElementById('Q6');
+        const Q7 = document.getElementById('Q7');
+        const Q8 = document.getElementById('Q8');
+        const Q9 = document.getElementById('Q9');
+        const Q10 = document.getElementById('Q10');
+        const Q11 = document.getElementById('Q11');
+        
+        // This variable stores all the data.
+        let data = 
+            '\r Q1: ' + Q1.value + ' \r\n ' + 
+            'Q2: ' + Q2.value + ' \r\n ' + 
+            'Q3: ' + Q3.value + ' \r\n ' + 
+            'Q4: ' + Q4.value + ' \r\n ' + 
+            'Q5: ' + Q5.value + ' \r\n ' +
+            'Q6: ' + Q6.value + ' \r\n ' +
+            'Q7: ' + Q7.value + ' \r\n ' +
+            'Q8: ' + Q8.value + ' \r\n ' +
+            'Q9: ' + Q9.value + ' \r\n ' +
+            'Q10: ' + Q10.value + ' \r\n ' +
+            'Q11: ' + Q11.value + ' \r\n ' +
+        
+        let, textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = 'Data.txt';	   // The file to save the data.
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click(); 
+    }
+</script>
+
+
+</form>
+</html>
